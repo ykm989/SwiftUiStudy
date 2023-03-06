@@ -9,24 +9,19 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack{
-            Text("Hello!")
-                .bold()
-                .italic()
-                .strikethrough()
-            Text("Huko!")
-                .font(.system(size: 60))
-            Text("어렵")
-                .underline(true, color: .orange)
-                .foregroundColor(.red)
-                .background(.purple)
-            Text("Hello Swift UI")
-                .foregroundColor(.green)
-                
-                
-                .font(.system(size: 39, weight: .bold, design: .rounded))
-        }
-
+//        Image("default")
+//            .resizable()
+//            .aspectRatio(contentMode: .fill)
+//            .frame(width: 250, height: 200)
+//            .clipped()
+//            .background(.orange)
+//            .border(.orange, width: 7)
+        
+        Image(systemName: "sun.min")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width: 50, height: 50)
+            
         
     }
 }
