@@ -1,2 +1,2 @@
-# swiftUiStudy
+# SwiftUiStudy
 Swift UI Study

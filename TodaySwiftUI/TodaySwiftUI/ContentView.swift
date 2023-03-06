@@ -9,13 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+//        Button {
+//            print("Hitted2")
+//        } label: {
+//            Text("Huko")
+//                .padding()
+//                .frame(width: 150)
+//                .background(.purple)
+//                .cornerRadius(13)
+//        }
+        Button("Delete", role: .none) {
+            print("deleted")
         }
-        .padding()
+
+
+        
     }
 }
 
