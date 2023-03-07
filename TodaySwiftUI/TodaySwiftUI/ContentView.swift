@@ -16,14 +16,66 @@ struct Person: Identifiable{
 struct ContentView: View {
     var body: some View {
         
-        let people: [Person] = [Person(name: "Leeo", imageName: "heart"), Person(name: "Huko", imageName: "heart.fill"), Person(name: "Steave", imageName: "bolt")]
-        
-        List(people) { person in
-            HStack{
-                Image(systemName: person.imageName)
-                Text(person.name)
+        List{
+            Section {
+                HStack{
+                    Image(systemName: "heart")
+                    Text("Huko")
+                }
+                HStack{
+                    Image(systemName: "heart.fill")
+                    Text("Leeo")
+                }
+                HStack{
+                    Image(systemName: "bolt")
+                    Text("Steave")
+                }
+            } header: {
+                Text("Header")
+            } footer: {
+                Text("Foolter")
+            }
+
+            
+            Section{
+                HStack{
+                    Image(systemName: "heart")
+                    Text("Huko")
+                }
+                HStack{
+                    Image(systemName: "heart.fill")
+                    Text("Leeo")
+                }
+                HStack{
+                    Image(systemName: "bolt")
+                    Text("Steave")
+                }
+                HStack{
+                    Image(systemName: "heart")
+                    Text("Huko")
+                }
+                
             }
             
+            Section{
+                HStack{
+                    Image(systemName: "heart")
+                    Text("Huko")
+                }
+                HStack{
+                    Image(systemName: "heart")
+                    Text("Huko")
+                }
+                HStack{
+                    Image(systemName: "heart")
+                    Text("Huko")
+                }
+                HStack{
+                    Image(systemName: "heart")
+                    Text("Huko")
+                }
+                
+            }
         }
         
 //        List{
