@@ -9,20 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-//        Image("default")
-//            .resizable()
-//            .aspectRatio(contentMode: .fill)
-//            .frame(width: 250, height: 200)
-//            .clipped()
-//            .background(.orange)
-//            .border(.orange, width: 7)
-        
-        Image(systemName: "sun.min")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width: 50, height: 50)
-            
-        
+        ScrollView(.horizontal, showsIndicators: false){
+            HStack{
+                Text("1")
+                    .frame(width: 300, height: 500)
+                    .background(.red)
+                Text("2")
+                    .frame(width: 300, height: 500)
+                    .background(.blue)
+                Text("3")
+                    .frame(width: 300, height: 500)
+                    .background(.orange)
+            }
+        }
+        .background(.yellow)
     }
 }
 
