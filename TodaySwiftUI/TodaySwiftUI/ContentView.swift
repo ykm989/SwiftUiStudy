@@ -7,23 +7,25 @@
 
 import SwiftUI
 
-struct Person: Identifiable{
-    var id = UUID()
-    let name: String
-    let imageName: String
-}
 
 struct ContentView: View {
-    var body: some View {
-        MyView()
+    
+    @State var name: String = ""
+    
+    var body: some View{
+        VStack{
+            Text("Hi \(name)")
+            
+            Button {
+                name = "Leeo!"
+            } label: {
+                Text("Click")
+            }
+
+        }
     }
 }
 
-struct MyView: View{
-    var body: some View{
-        Text("Hi Huko!")
-    }
-}
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
