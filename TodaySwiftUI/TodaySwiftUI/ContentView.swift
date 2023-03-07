@@ -7,22 +7,41 @@
 
 import SwiftUI
 
+struct Person: Identifiable{
+    var id = UUID()
+    let name: String
+    let imageName: String
+}
+
 struct ContentView: View {
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false){
+        
+        let people: [Person] = [Person(name: "Leeo", imageName: "heart"), Person(name: "Huko", imageName: "heart.fill"), Person(name: "Steave", imageName: "bolt")]
+        
+        List(people) { person in
             HStack{
-                Text("1")
-                    .frame(width: 300, height: 500)
-                    .background(.red)
-                Text("2")
-                    .frame(width: 300, height: 500)
-                    .background(.blue)
-                Text("3")
-                    .frame(width: 300, height: 500)
-                    .background(.orange)
+                Image(systemName: person.imageName)
+                Text(person.name)
             }
+            
         }
-        .background(.yellow)
+        
+//        List{
+//            HStack{
+//                Image(systemName: "heart")
+//                Text("Huko")
+//            }
+//
+//            HStack{
+//                Image(systemName: "heart.fill")
+//                Text("Dodo")
+//            }
+//            HStack{
+//                Image(systemName:"bolt")
+//                Text("Olivia")
+//            }
+//        }
+//        .background(.yellow)
     }
 }
 
