@@ -12,17 +12,15 @@ struct ContentView: View {
     
     @State var name: String = ""
     
+    // modify 공부하기
+    
     var body: some View{
-        VStack{
-            Text("Hi \(name)")
-            
-            Button {
-                name = "Leeo!"
-            } label: {
-                Text("Click")
-            }
-
-        }
+        Image(systemName: "bolt")
+            .resizable()
+            .aspectRatio(contentMode: .fit)
+            .frame(width:100)
+            .background(.green)
+            .foregroundColor(.red)
     }
 }
 
