@@ -16,84 +16,26 @@ struct Person: Identifiable{
 struct ContentView: View {
     var body: some View {
         
-        List{
-            Section {
-                HStack{
-                    Image(systemName: "heart")
-                    Text("Huko")
-                }
-                HStack{
-                    Image(systemName: "heart.fill")
-                    Text("Leeo")
-                }
-                HStack{
-                    Image(systemName: "bolt")
-                    Text("Steave")
-                }
-            } header: {
-                Text("Header")
-            } footer: {
-                Text("Foolter")
-            }
-
+        VStack{
+            Image(systemName: "bolt")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width: 200)
             
-            Section{
-                HStack{
-                    Image(systemName: "heart")
-                    Text("Huko")
-                }
-                HStack{
-                    Image(systemName: "heart.fill")
-                    Text("Leeo")
-                }
-                HStack{
-                    Image(systemName: "bolt")
-                    Text("Steave")
-                }
-                HStack{
-                    Image(systemName: "heart")
-                    Text("Huko")
-                }
-                
-            }
+            Spacer()
+            HStack{
+                Image(systemName: "heart")
+                Spacer()
+                Text("Bolt!")
+            }.padding(.horizontal, 30)
             
-            Section{
-                HStack{
-                    Image(systemName: "heart")
-                    Text("Huko")
-                }
-                HStack{
-                    Image(systemName: "heart")
-                    Text("Huko")
-                }
-                HStack{
-                    Image(systemName: "heart")
-                    Text("Huko")
-                }
-                HStack{
-                    Image(systemName: "heart")
-                    Text("Huko")
-                }
-                
+            Spacer()
+            Button{
+                print("Blink!")
+            } label:{
+                Text("Hit")
             }
         }
-        
-//        List{
-//            HStack{
-//                Image(systemName: "heart")
-//                Text("Huko")
-//            }
-//
-//            HStack{
-//                Image(systemName: "heart.fill")
-//                Text("Dodo")
-//            }
-//            HStack{
-//                Image(systemName:"bolt")
-//                Text("Olivia")
-//            }
-//        }
-//        .background(.yellow)
     }
 }
 
