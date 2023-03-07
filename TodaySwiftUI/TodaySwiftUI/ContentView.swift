@@ -10,17 +10,27 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var name: String = ""
-    
-    // modify 공부하기
     
     var body: some View{
-        Image(systemName: "bolt")
-            .resizable()
-            .aspectRatio(contentMode: .fit)
-            .frame(width:100)
-            .background(.green)
-            .foregroundColor(.red)
+        VStack{
+            Image(systemName: "bolt")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width:100)
+                .padding([.bottom, .top], 100)
+                .background(.green)
+                .foregroundColor(.red)
+                
+            
+            Image(systemName: "bolt")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .frame(width:100)
+                .padding(.leading, 100)
+                .background(.green)
+                .foregroundColor(.red)
+                
+        }
     }
 }
 
