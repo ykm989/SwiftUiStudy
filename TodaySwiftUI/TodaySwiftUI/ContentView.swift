@@ -15,27 +15,13 @@ struct Person: Identifiable{
 
 struct ContentView: View {
     var body: some View {
-        
-        VStack{
-            Image(systemName: "bolt")
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .frame(width: 200)
-            
-            Spacer()
-            HStack{
-                Image(systemName: "heart")
-                Spacer()
-                Text("Bolt!")
-            }.padding(.horizontal, 30)
-            
-            Spacer()
-            Button{
-                print("Blink!")
-            } label:{
-                Text("Hit")
-            }
-        }
+        MyView()
+    }
+}
+
+struct MyView: View{
+    var body: some View{
+        Text("Hi Huko!")
     }
 }
 
