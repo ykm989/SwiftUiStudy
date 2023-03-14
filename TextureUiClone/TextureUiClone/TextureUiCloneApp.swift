@@ -11,7 +11,7 @@ import SwiftUI
 struct TextureUiCloneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LanchScreenView()
         }
     }
 }
