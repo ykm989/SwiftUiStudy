@@ -12,11 +12,29 @@ struct Onboard: View {
     let contents: String
     let image: Image
     
+    var title1: AttributedString{
+        var result = AttributedString(title)
+        result.font = .largeTitle
+        
+        return result
+    }
+    var title2: AttributedString{
+        var result = AttributedString(".")
+        result.foregroundColor = .green
+        result.font = .systemFont(ofSize: 55, weight: .bold)
+        
+        
+        return result
+    }
+    
+    
+    
+    
     var body: some View {
         ZStack{
             VStack{
                 VStack{
-                    Text(title)
+                    Text(title1 + title2)
                     Spacer()
                     Text(contents)
                 }.frame(height:100)
