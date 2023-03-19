@@ -37,4 +37,5 @@ struct FrameStudy_Previews: PreviewProvider {
  1. 고정된 사이즈
  2. 최소/최대/이상적 사이즈 정의
  
+ frame은 디버깅에서 보면 여러층으로 겹쳐져 있는게 아니라 하나의 층에 그려져 있다.
  */

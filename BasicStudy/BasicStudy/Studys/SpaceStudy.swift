@@ -55,4 +55,5 @@ struct SpaceStudy_Previews: PreviewProvider {
 /*
  Spacer()는 사용 가능한 전체 공간을 뛰움
  여러개가 있다면 그것을 등분해서 뛰움
+ Spacer보다는 padding을 쓰면 더 편하다.
  */
