@@ -11,6 +11,10 @@
 		AA2DE38929C37579003712D9 /* AttributedStringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA2DE38829C37579003712D9 /* AttributedStringTest.swift */; };
 		AA2DE38B29C3757B003712D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2DE38A29C3757B003712D9 /* Assets.xcassets */; };
 		AA2DE38E29C3757B003712D9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA2DE38D29C3757B003712D9 /* Preview Assets.xcassets */; };
+		AAF2FB2229C6E9CF0054E159 /* TextStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2FB2129C6E9CE0054E159 /* TextStudy.swift */; };
+		AAF2FB2729C701400054E159 /* 나눔손글씨 규리의 일기.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AAF2FB2629C701400054E159 /* 나눔손글씨 규리의 일기.ttf */; };
+		AAF2FB2929C7034D0054E159 /* LabelStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2FB2829C7034D0054E159 /* LabelStudy.swift */; };
+		AAF2FB2E29C71DF30054E159 /* ShapteStudy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2FB2D29C71DF30054E159 /* ShapteStudy.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,10 @@
 		AA2DE38829C37579003712D9 /* AttributedStringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedStringTest.swift; sourceTree = "<group>"; };
 		AA2DE38A29C3757B003712D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA2DE38D29C3757B003712D9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AAF2FB2129C6E9CE0054E159 /* TextStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStudy.swift; sourceTree = "<group>"; };
+		AAF2FB2629C701400054E159 /* 나눔손글씨 규리의 일기.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "나눔손글씨 규리의 일기.ttf"; sourceTree = "<group>"; };
+		AAF2FB2829C7034D0054E159 /* LabelStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStudy.swift; sourceTree = "<group>"; };
+		AAF2FB2D29C71DF30054E159 /* ShapteStudy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShapteStudy.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +59,8 @@
 		AA2DE38529C37579003712D9 /* BasicStudy */ = {
 			isa = PBXGroup;
 			children = (
+				AAF2FB2329C6F87F0054E159 /* Fonts */,
+				AAF2FB2A29C71C710054E159 /* Studys */,
 				AA2DE38629C37579003712D9 /* BasicStudyApp.swift */,
 				AA2DE38829C37579003712D9 /* AttributedStringTest.swift */,
 				AA2DE38A29C3757B003712D9 /* Assets.xcassets */,
@@ -65,6 +75,24 @@
 				AA2DE38D29C3757B003712D9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AAF2FB2329C6F87F0054E159 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				AAF2FB2629C701400054E159 /* 나눔손글씨 규리의 일기.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		AAF2FB2A29C71C710054E159 /* Studys */ = {
+			isa = PBXGroup;
+			children = (
+				AAF2FB2129C6E9CE0054E159 /* TextStudy.swift */,
+				AAF2FB2829C7034D0054E159 /* LabelStudy.swift */,
+				AAF2FB2D29C71DF30054E159 /* ShapteStudy.swift */,
+			);
+			path = Studys;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA2DE38E29C3757B003712D9 /* Preview Assets.xcassets in Resources */,
+				AAF2FB2729C701400054E159 /* 나눔손글씨 규리의 일기.ttf in Resources */,
 				AA2DE38B29C3757B003712D9 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -137,7 +166,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF2FB2E29C71DF30054E159 /* ShapteStudy.swift in Sources */,
+				AAF2FB2929C7034D0054E159 /* LabelStudy.swift in Sources */,
 				AA2DE38929C37579003712D9 /* AttributedStringTest.swift in Sources */,
+				AAF2FB2229C6E9CF0054E159 /* TextStudy.swift in Sources */,
 				AA2DE38729C37579003712D9 /* BasicStudyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

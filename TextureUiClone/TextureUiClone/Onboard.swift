@@ -29,7 +29,8 @@ struct Onboard: View {
         return result
     }
     
-    
+    //.rotationEffect(Angle(degrees:Bool값 넣어주고 ? 180 : 0)
+    // .withAnimaition()
     
     
     var body: some View {
@@ -55,22 +56,26 @@ struct Onboard: View {
                             .font(.system(size: 20))
                     }
                 }.frame(height:100)
-                
+                Spacer(minLength: 50)
                 VStack{
-                    Spacer()
                     Image(systemName: "bolt")
                         .resizable()
                         .frame(width: 200, height: 200)
                         .aspectRatio(contentMode: .fit)
-                    Spacer()
+                    Spacer(minLength: 300)
                     Button {
                         print("hello")
                     } label: {
                         Text("시작하기")
-                    }.frame(width:200)
-                        .background(.red)
+                            
+                    }
+                    .frame(width: 400, height: 50)
+                    .disabled(false)
+                        
+                        .background(.white)
                     Spacer()
-                }
+                }.background(Color.blue)
+                Spacer(minLength: 5)
                 
             }
         }
