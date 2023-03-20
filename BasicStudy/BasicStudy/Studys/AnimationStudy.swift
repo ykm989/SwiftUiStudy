@@ -36,11 +36,15 @@ struct AnimationStudy: View {
             }
             Spacer()
             
-            RoundedRectangle(cornerRadius: 20)
-                .fill(animationBool ? Color.white : Color.blue)
-                .frame(width: 200, height: 200)
-//                .animation(.default)
-                .animation(.easeIn(duration: 1)) // 시간초를 줄 수 있다.
+            //withAnimation 안에 넣어둬도 가능하다.
+            withAnimation {
+                RoundedRectangle(cornerRadius: 20)
+                    .fill(animationBool ? Color.white : Color.blue)
+                    .frame(width: 200, height: 200)
+    //                .animation(.default)
+                    .animation(.easeIn(duration: 1)) // 시간초를 줄 수 있다.
+            }
+ 
 
             
             Spacer()
@@ -69,4 +73,5 @@ struct AnimationStudy_Previews: PreviewProvider {
 
 /*
  animation을 걸어두면 상태가 변할 때 그 변하가 애니메이션 효과를 가진다.
+ withAnimation을 사용해도 된다.
  */
