@@ -25,10 +25,18 @@ struct SheetStudy: View {
             } label: {
                 Text("Sheet Button")
             }
-//            //        뷰를 불러온다.
-//            .sheet(isPresented: $sheetOn) {
-//                SecondView()
+//            // alert 구현 ios 13, 14버전까지
+//            .alert(isPresented: $sheetOn){
+//                Alert(title: Text("Alert Title"), message: Text("Alert Study!"), dismissButton: .default(Text("Dismiss")))
 //            }
+            // alert 구현 ios 15 버전부터는 이렇게 구현
+//            .alert("메시지", isPresented: $sheetOn){
+//                Button("OK", role: .cancel){}
+            }
+            //        뷰를 불러온다.
+            .sheet(isPresented: $sheetOn) {
+                SecondView()
+            }
             // Action Sheet
 //            .actionSheet(isPresented: $sheetOn){
 //                ActionSheet(title: Text("Action Sheet"), message: Text("골라보세요."), buttons: [.default(Text("Dismiss")), .cancel(Text("Cancel"))])
