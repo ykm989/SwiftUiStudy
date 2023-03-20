@@ -9,6 +9,31 @@ import SwiftUI
 
 struct ToggleStudy: View {
     @State private var colorBool: Bool = false
+    @State private var shouldShowMenu = true
+    
+    let menuItems = ContextMenu {
+        Button {
+            
+        } label: {
+            Text("♥️ - Hearts")
+        }
+        Button {
+            
+        } label: {
+            Text("♣️ - Clubs")
+        }
+        Button {
+            
+        } label: {
+            Text("♠️ - Spades")
+        }
+        Button {
+            
+        } label: {
+            Text("♦️ - Diamonds")
+        }
+
+    }
     
     var body: some View {
         VStack{
@@ -23,6 +48,10 @@ struct ToggleStudy: View {
             
             
             colorBool ? Text("On") : Text("Off")
+            
+            // contextMenu 만듥기
+            Text("Context Menu")
+                .contextMenu(shouldShowMenu ? menuItems : nil)
         }
         
         
