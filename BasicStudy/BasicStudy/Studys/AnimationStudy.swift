@@ -22,7 +22,7 @@ struct AnimationStudy: View {
             }
             .padding(50)
             .background(animationBool ? Color.blue : Color.red )
-            .clipShape(Circle())
+            .clipShape(Circle()) // View의 모양을 변경해주는것
             .overlay(
                 Circle()
                     .stroke(Color.yellow, lineWidth: 2)

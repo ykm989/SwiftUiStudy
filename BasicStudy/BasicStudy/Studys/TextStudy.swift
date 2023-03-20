@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct TextStudy: View {
+    @State private var text = ""
+    
     var body: some View {
         VStack{
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
@@ -45,6 +47,14 @@ struct TextStudy: View {
             
             // Custom Font
             Text("Hello World!")
+            
+            // Text Field
+            TextField("Hello World", text: $text)
+                .foregroundColor(Color.blue)
+                .background(Color.yellow).cornerRadius(20)
+            
+            // Text
+            Text(text)
         }
         
     }
