@@ -63,7 +63,7 @@ struct SheetStudy: View {
 //            ThirdView()
 //                .offset(y: sheetOn ? 0 : UIScreen.main.bounds.height)
 //                .animation(.spring())
-        }
+//        }
     }
     
 }

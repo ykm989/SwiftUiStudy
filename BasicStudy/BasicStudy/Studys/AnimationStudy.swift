@@ -31,7 +31,7 @@ struct AnimationStudy: View {
                     .animation(Animation.easeInOut(duration: 1)
                         .repeatForever(autoreverses: false))
             )
-            .onAppear{
+            .onAppear{ // 뷰가 처음 생성 될 떄 안에 내용이 발생
                 self.animationAmount = 2
             }
             Spacer()
