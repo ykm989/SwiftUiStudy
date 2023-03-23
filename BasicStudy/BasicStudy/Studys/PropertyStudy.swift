@@ -64,16 +64,97 @@ import SwiftUI
 
 // 같은 로직을 하나의 프로퍼티에 연결할 수 있다.
 
-struct PropertyStudy: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+//// ObservableObject & EnvironmnetObject
+//class TimeData : ObservableObject {
+//    @Published var timeCount = 0
+//
+//
+//    @objc func timeCountPlus(){
+//        timeCount += 1
+//    }
+//
+//    func resetCount(){
+//        timeCount = 0
+//    }
+//}
+//
+//struct TimerView: View {
+//    @ObservedObject var timeData: TimeData // ObservableObject를 받는다. Static하게 사용가능
+//    @StateObject var timeData // ObservedObejct랑 같은 역활을 하지만
+//    @EnvironmnetObject var timeData: TimeData // 환경 변수를 만든다.
+//
+//    var body: some View{
+//        Button {
+//            timerData.timeCountPlus()
+//        } label: {
+//            Text("\(timerData.timeCount)")
+//            Secon
+//        }
+//
+//    }
+//}
+//
+//struct SecondView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SecondView().environmentObject(TimerData())
+//    }
+//}
+
+
+// StateObject vs ObservedObject
+final class Counter: ObservableObject{
+    @Published var count = 0
+    
+    func incrementCounter(){
+        count += 1
     }
+}
+
+struct PropertyStudy: View {
+    @ObservedObject var counter = Counter()
+//    @StateObject var counter = Counter()
+    
+    
+    var body: some View {
+        VStack{
+            Text("Count : \(counter.count)")
+
+            Button {
+                counter.incrementCounter()
+            } label: {
+                Text("+")
+            }
+
+        }
+    }
+}
+
+struct RandomNumberView: View{
+    @State var randomNumber = 0
+    
+    var body: some View{
+        VStack{
+            // State의 값이 변경되면 그걸 인식해서 뷰를 다시 그린다.
+            // 이때 ObservedObject면 Counter가 초기화 됨
+            // StateObject면 Counter가 보존된다.
+            Text("Random number is : \(randomNumber)")
+            Button("Random Button"){
+                randomNumber = (0...100).randomElement()!
+            }
+            
+            PropertyStudy().padding()
+        }
+        
+        
+    }
+    
 }
 
 struct PropertyStudy_Previews: PreviewProvider {
     static var previews: some View {
 //        PropertyStudy()
-        StateExample()
+        RandomNumberView()
+//        StateExample()
     }
 }
 
@@ -108,40 +189,6 @@ struct BindingExample: View{
     
 }
 
-//// ObservableObject & EnvironmnetObject
-//class TimeData : ObservableObject {
-//    @Published var timeCount = 0
-//
-//
-//    @objc func timeCountPlus(){
-//        timeCount += 1
-//    }
-//
-//    func resetCount(){
-//        timeCount = 0
-//    }
-//}
-//
-//struct TimerView: View {
-//    @ObservedObject var timerData: TimeData
-//    @EnvironmnetObject var timeData: TimeData
-//
-//    var body: some View{
-//        Button {
-//            timerData.timeCountPlus()
-//        } label: {
-//            Text("\(timerData.timeCount)")
-//            Secon
-//        }
-//
-//    }
-//}
-//
-//struct SecondView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        SecondView().environmentObject(TimerData())
-//    }
-//}
 
 /*
  SwiftUIProperty Wrapper List
@@ -170,7 +217,12 @@ struct BindingExample: View{
  사용자 인터페이스 밖에 있으며 앱 내의 SwiftUI 뷰 구조체의 하위 뷰에만 필요한 데이터는 Observable 오브젝트를 이용
  사용자 인터페이스 밖에 있으며 여러 뷰에서 접근해야 하는 데이터는 Environment 오브젝트를 활용
  
- 4. ObservedObject
+ 5. ObservedObject
  클래스나 struct를 static하게 사용 가능
+ 
+ 6. StateObject
+ StateObject는 IOS 14부터 등장해서 ObservedObject를 대체하는 느낌이다.
+ StateObject는 ObservedObject와 유사하지만, 이 StateObject는 하나의 객체로 만들어지고, View가 얼마나 초기화되든지 상관없이 별개의 객체로 관리된다.
+ ObservedObject를 인스턴스화시켜준다.
  
  */
