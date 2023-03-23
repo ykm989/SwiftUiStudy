@@ -108,17 +108,40 @@ struct BindingExample: View{
     
 }
 
-// EnvironmentObject로 정의
-struct EnvironmentExample: View{
-    @EnvironmentObject var userSetting: UserSetting
-
-    var body: some View{
-        VStack{
-            Text("Hello")
-        }
-    }
-}
-
+//// ObservableObject & EnvironmnetObject
+//class TimeData : ObservableObject {
+//    @Published var timeCount = 0
+//
+//
+//    @objc func timeCountPlus(){
+//        timeCount += 1
+//    }
+//
+//    func resetCount(){
+//        timeCount = 0
+//    }
+//}
+//
+//struct TimerView: View {
+//    @ObservedObject var timerData: TimeData
+//    @EnvironmnetObject var timeData: TimeData
+//
+//    var body: some View{
+//        Button {
+//            timerData.timeCountPlus()
+//        } label: {
+//            Text("\(timerData.timeCount)")
+//            Secon
+//        }
+//
+//    }
+//}
+//
+//struct SecondView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SecondView().environmentObject(TimerData())
+//    }
+//}
 
 /*
  SwiftUIProperty Wrapper List
@@ -144,8 +167,10 @@ struct EnvironmentExample: View{
  
  4. EnvironmentObject
  State말고도 EnviromentObject로 정의하면 다른 뷰에서도 사용 가능
+ 사용자 인터페이스 밖에 있으며 앱 내의 SwiftUI 뷰 구조체의 하위 뷰에만 필요한 데이터는 Observable 오브젝트를 이용
+ 사용자 인터페이스 밖에 있으며 여러 뷰에서 접근해야 하는 데이터는 Environment 오브젝트를 활용
  
  4. ObservedObject
- 5.
+ 클래스나 struct를 static하게 사용 가능
  
  */
