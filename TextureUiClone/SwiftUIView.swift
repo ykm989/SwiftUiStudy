@@ -13,6 +13,7 @@ struct SwiftUIView: View {
             Text("hello")
             Text("hello")
             Text("hello")
+            ProgressView()
         }
     }
 }

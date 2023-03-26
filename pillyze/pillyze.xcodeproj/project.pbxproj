@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AA962B3B29CC926800F2A0AF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA962B3A29CC926800F2A0AF /* Launch Screen.storyboard */; };
+		AA962B3D29CD873B00F2A0AF /* OnBoarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B3C29CD873B00F2A0AF /* OnBoarding.swift */; };
 		AAF2FB7C29CC91260054E159 /* PillyzeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2FB7B29CC91260054E159 /* PillyzeApp.swift */; };
 		AAF2FB7E29CC91260054E159 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF2FB7D29CC91260054E159 /* ContentView.swift */; };
 		AAF2FB8029CC91280054E159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAF2FB7F29CC91280054E159 /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		AA962B3A29CC926800F2A0AF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		AA962B3C29CD873B00F2A0AF /* OnBoarding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoarding.swift; sourceTree = "<group>"; };
 		AAF2FB7829CC91260054E159 /* Pillyze.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pillyze.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAF2FB7B29CC91260054E159 /* PillyzeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillyzeApp.swift; sourceTree = "<group>"; };
 		AAF2FB7D29CC91260054E159 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				AAF2FB7B29CC91260054E159 /* PillyzeApp.swift */,
+				AA962B3C29CD873B00F2A0AF /* OnBoarding.swift */,
 				AAF2FB7D29CC91260054E159 /* ContentView.swift */,
 				AAF2FB7F29CC91280054E159 /* Assets.xcassets */,
 				AAF2FB8129CC91280054E159 /* Preview Content */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAF2FB7E29CC91260054E159 /* ContentView.swift in Sources */,
+				AA962B3D29CD873B00F2A0AF /* OnBoarding.swift in Sources */,
 				AAF2FB7C29CC91260054E159 /* PillyzeApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
