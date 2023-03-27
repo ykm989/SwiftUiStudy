@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var viewModel = MainViewModel()
     @State private var animationAmount: CGFloat = 1
     @State var selectedTab = "house"
     @State var clickButton: Bool = false
@@ -36,7 +37,7 @@ struct MainView: View {
                 .onAppear{
                     self.animationAmount = 2
                 }
-                .alert("\(Date()) \n 기록되었습니다.", isPresented: $clickButton) {
+                .alert("\(viewModel.now()) \n 기록되었습니다.", isPresented: $clickButton) {
                     Button("OK", role: .cancel) {}
                 }
                 Spacer()
