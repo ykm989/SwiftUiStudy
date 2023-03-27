@@ -13,6 +13,8 @@
 		AA962B5229D1828800F2A0AF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA962B5129D1828800F2A0AF /* Preview Assets.xcassets */; };
 		AA962B5929D1857100F2A0AF /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA962B5829D1857100F2A0AF /* Launch Screen.storyboard */; };
 		AA962B5E29D18AA800F2A0AF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B5D29D18AA800F2A0AF /* MainView.swift */; };
+		AA962B6029D1902000F2A0AF /* CustomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B5F29D1902000F2A0AF /* CustomTabBar.swift */; };
+		AA962B6229D1950100F2A0AF /* TabCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B6129D1950100F2A0AF /* TabCurve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +25,8 @@
 		AA962B5129D1828800F2A0AF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AA962B5829D1857100F2A0AF /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		AA962B5D29D18AA800F2A0AF /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		AA962B5F29D1902000F2A0AF /* CustomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBar.swift; sourceTree = "<group>"; };
+		AA962B6129D1950100F2A0AF /* TabCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCurve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				AA962B5D29D18AA800F2A0AF /* MainView.swift */,
+				AA962B5F29D1902000F2A0AF /* CustomTabBar.swift */,
+				AA962B6129D1950100F2A0AF /* TabCurve.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -168,9 +174,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA962B6029D1902000F2A0AF /* CustomTabBar.swift in Sources */,
 				AA962B4D29D1828700F2A0AF /* ContentView.swift in Sources */,
 				AA962B5E29D18AA800F2A0AF /* MainView.swift in Sources */,
 				AA962B4B29D1828700F2A0AF /* HMCApp.swift in Sources */,
+				AA962B6229D1950100F2A0AF /* TabCurve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,8 @@ import SwiftUI
 struct HMCApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+//            ContentView()
+            MainView()
         }
     }
 }
