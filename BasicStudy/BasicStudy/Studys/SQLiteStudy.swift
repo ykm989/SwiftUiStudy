@@ -11,11 +11,11 @@ import SQLite3
 struct SQLiteStudy: View {
     var body: some View {
         VStack(spacing: 10){
-            Button {
-                DBHelper().createDB()
-            } label: {
-                Text("Create DB")
-            }
+//            Button {
+//                DBHelper().createDB()
+//            } label: {
+//                Text("Create DB")
+//            }
 
             Button {
                 DBHelper().createTable()
@@ -24,15 +24,28 @@ struct SQLiteStudy: View {
             }
             
             Button {
-                DBHelper().insertDate(recordDate: <#T##Info#>)
+                DBHelper().deleteTable()
+            } label: {
+                Text("Delete Table")
+            }
+
+            
+            Button {
+                DBHelper().insertDate(Info(date: now(), position: "56123.123123.123"))
             } label: {
                 Text("Insert Data")
             }
 
             Button {
-                
+                DBHelper().deleteData()
             } label: {
                 Text("Delete Data")
+            }
+
+            Button {
+                DBHelper().readData()
+            } label: {
+                Text("Read Data")
             }
 
 
@@ -79,7 +92,7 @@ class DBHelper {
     
     // 테이블 생성
     func createTable(){
-        let query = "create table if not exists myDB (id INTEGER primary key autoincrement, overallData text)"
+        let query = "create table if not exists myDB (id INTEGER primary key autoincrement, recordData text)"
         var statement: OpaquePointer? = nil
         
         // sqlite3_prepare_v2는 sqlite의 명령어를 수행
@@ -95,7 +108,7 @@ class DBHelper {
             }
         } else {
             let errorMessage = String(cString: sqlite3_errmsg(db))
-            print("error: create table sqlite3 prepare fail")
+            print("error: create table fail : \(errorMessage)")
         }
         
         // sqlite3를 수행하면서 생긴 메모리를 제거
@@ -121,21 +134,21 @@ class DBHelper {
         sqlite3_finalize(statement)
     }
     
-    func insertDate(name: String, recordDate: Info){
-        
-        let query = "insert into myDB (id, info) values (?,?);"
+    func insertDate(_ recordData: Info){
+        // autocrement일 경우에는 입력 부분에서는 컬럼을 추가 안해줘도 자동으로 추가가 되지만 쿼리 문에서는 이렇게 추가 해줘야한다.
+        let query = "insert into myDB (id, recordData) values (?,?);"
         var statement: OpaquePointer? = nil
         
         do{
             // 데이터를 인코딩 & String으로 변환
-            let data = try JSONEncoder().encode(recordDate)
+            let data = try JSONEncoder().encode(recordData)
             let dataToString = String(data: data, encoding: .utf8)
             
             print(dataToString!)
             
+            
             if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK{
-                sqlite3_bind_text(statement, 2, NSString(string: name).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 3, NSString(string: dataToString!).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, NSString(string: dataToString!).utf8String, -1, nil)
                 
                 if sqlite3_step(statement) == SQLITE_DONE{
                     print("Insert data SuccessFully : \(String(describing: db))")
@@ -165,15 +178,12 @@ class DBHelper {
                 // 정수형 컬럼을 가져올 때 사용한다. 뒤에 0은 첫번째 컬럼을 뜻한다.
                 let id = sqlite3_column_int(statement, 0)
                 
-                // 만약에 컬럼이 name 하나 뿐이 였다면 반환되는 결과물도 name 하나 뿐이기 때문에 이 부분이 1이 아니라 0이 되야한다.
-                let name = String(cString: sqlite3_column_text(statement, 1))
-                
                 // 문자열이라면 이렇게 text형식으로 가져온다. JSON으로 인코딩해서 String 형태로 넣어줬기 때문에 이렇게 받아와야 함
-                let info = String(cString: sqlite3_column_text(statement, 2))
+                let info = String(cString: sqlite3_column_text(statement, 1))
                 
                 do{
                     let data = try JSONDecoder().decode(Info.self, from: info.data(using: .utf8)!)
-                    print("readData Result: \(id) \(name) \(data)")
+                    print("readData Result: \(id) \(data)")
                 } catch{
                     print("JSONDecoder Error : \(error.localizedDescription)")
                 }
@@ -184,6 +194,33 @@ class DBHelper {
         }
         sqlite3_finalize(statement)
     }
+    
+    func deleteData(){
+        let query = "delete from myDB where id >= 2;"
+        
+        var statement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK{
+            if sqlite3_step(statement) == SQLITE_DONE{
+                print("Delete data SuccessFully : \(String(describing: db))")
+            } else {
+                let errorMessage = String(cString: sqlite3_errmsg(db))
+                print("\n delete Data prepare fail : \(errorMessage)")
+            }
+        } else {
+            let errorMessage = String(cString: sqlite3_errmsg(db))
+            print("\n delete Data prepare fail : \(errorMessage)")
+        }
+        
+        sqlite3_finalize(statement)
+    }
+}
+
+func now() -> String{
+    let formatter = DateFormatter()
+    formatter.dateFormat = "YYYY년 M월 d일"
+    
+    return formatter.string(from: Date())
 }
 
 struct Info: Codable{

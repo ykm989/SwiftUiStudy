@@ -65,7 +65,7 @@ class DBHelper {
     
     // 테이블 생성
     func createTable(){
-        let query = "create table if not exists record (id INTEGER primary key autoincrement, overallData text)"
+        let query = "create table if not exists record (id INTEGER primary key autoincrement, recordData text)"
         var statement: OpaquePointer? = nil
         
         // sqlite3_prepare_v2는 sqlite의 명령어를 수행
@@ -107,9 +107,9 @@ class DBHelper {
         sqlite3_finalize(statement)
     }
     
-    func insertDate(name: String, recordDate: Info){
+    func insertDate(_ recordDate: Info){
         
-        let query = "insert into record (id, info) values (?,?);"
+        let query = "insert into record (id, recordData) values (?,?);"
         var statement: OpaquePointer? = nil
         
         do{
@@ -120,8 +120,7 @@ class DBHelper {
             print(dataToString!)
             
             if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK{
-                sqlite3_bind_text(statement, 2, NSString(string: name).utf8String, -1, nil)
-                sqlite3_bind_text(statement, 3, NSString(string: dataToString!).utf8String, -1, nil)
+                sqlite3_bind_text(statement, 2, NSString(string: dataToString!).utf8String, -1, nil)
                 
                 if sqlite3_step(statement) == SQLITE_DONE{
                     print("Insert data SuccessFully : \(String(describing: db))")

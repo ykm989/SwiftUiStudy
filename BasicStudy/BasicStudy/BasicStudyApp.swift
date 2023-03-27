@@ -11,7 +11,8 @@ import SwiftUI
 struct BasicStudyApp: App {
     var body: some Scene {
         WindowGroup {
-            AttributedStringTest()
+//            AttributedStringTest()
+            SQLiteStudy()
         }
     }
 }
