@@ -1,35 +1,49 @@
 //
-//  Model.swift
-//  HMC
+//  SQLiteStudy.swift
+//  BasicStudy
 //
 //  Created by 김경호 on 2023/03/27.
-// SQL Lite 사용
-// NoSQL이 읽는 속도가 더 빠르기 때문에 사용. SQLite는 내장
 //
 
-import Foundation
-import SQLite3
 import SwiftUI
+import SQLite3
 
-class Model{
-    
-    func firstStart() -> Bool{
-        if UserDefaults.standard.bool(forKey: "FirstStart"){
-            return true
-        } else {
-            @AppStorage("FirstStart") var firstBool: Bool = true
+struct SQLiteStudy: View {
+    var body: some View {
+        VStack(spacing: 10){
+            Button {
+                DBHelper().createDB()
+            } label: {
+                Text("Create DB")
+            }
+
+            Button {
+                DBHelper().createTable()
+            } label: {
+                Text("Create Table")
+            }
             
-            return false
+            Button {
+                DBHelper().insertDate(recordDate: <#T##Info#>)
+            } label: {
+                Text("Insert Data")
+            }
+
+            Button {
+                
+            } label: {
+                Text("Delete Data")
+            }
+
+
         }
     }
-    
-    
-    func initDB(){
-        
-//        let fileManger = FileManager() // 파일 매니저 객체 생성
-//        let docPathURL =
+}
+
+struct SQLiteStudy_Previews: PreviewProvider {
+    static var previews: some View {
+        SQLiteStudy()
     }
-    
 }
 
 class DBHelper {
@@ -37,7 +51,7 @@ class DBHelper {
     
     var db: OpaquePointer? // db를 가리키는 포인터
     // db 이름은 항상 "DB이름.sqlite" 형식으로 해줄 것.
-    var path = "hmcdb.sqlite"
+    var path = "mySqlite.sqlite"
     
     init(){
         self.db = createDB()
@@ -65,7 +79,7 @@ class DBHelper {
     
     // 테이블 생성
     func createTable(){
-        let query = "create table if not exists record (id INTEGER primary key autoincrement, overallData text)"
+        let query = "create table if not exists myDB (id INTEGER primary key autoincrement, overallData text)"
         var statement: OpaquePointer? = nil
         
         // sqlite3_prepare_v2는 sqlite의 명령어를 수행
@@ -89,7 +103,7 @@ class DBHelper {
     }
     
     func deleteTable(){
-        let query = "DROP Table record"
+        let query = "DROP Table myDB"
         var statement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK{
@@ -109,7 +123,7 @@ class DBHelper {
     
     func insertDate(name: String, recordDate: Info){
         
-        let query = "insert into record (id, info) values (?,?);"
+        let query = "insert into myDB (id, info) values (?,?);"
         var statement: OpaquePointer? = nil
         
         do{
@@ -138,6 +152,37 @@ class DBHelper {
         } catch{
             print("JSONEncoder Error : \(error.localizedDescription)")
         }
+    }
+    
+    func readData(){
+        let query = "select * from myDB;"
+        var statement: OpaquePointer? = nil
+        
+        if sqlite3_prepare_v2(self.db, query, 01, &statement, nil) == SQLITE_OK{
+            
+            // 현재 테이블에서 컬럼이 존재하면 계속 읽는다
+            while sqlite3_step(statement) == SQLITE_ROW{
+                // 정수형 컬럼을 가져올 때 사용한다. 뒤에 0은 첫번째 컬럼을 뜻한다.
+                let id = sqlite3_column_int(statement, 0)
+                
+                // 만약에 컬럼이 name 하나 뿐이 였다면 반환되는 결과물도 name 하나 뿐이기 때문에 이 부분이 1이 아니라 0이 되야한다.
+                let name = String(cString: sqlite3_column_text(statement, 1))
+                
+                // 문자열이라면 이렇게 text형식으로 가져온다. JSON으로 인코딩해서 String 형태로 넣어줬기 때문에 이렇게 받아와야 함
+                let info = String(cString: sqlite3_column_text(statement, 2))
+                
+                do{
+                    let data = try JSONDecoder().decode(Info.self, from: info.data(using: .utf8)!)
+                    print("readData Result: \(id) \(name) \(data)")
+                } catch{
+                    print("JSONDecoder Error : \(error.localizedDescription)")
+                }
+            }
+        } else {
+            let errorMessage = String(cString: sqlite3_errmsg(db))
+            print("\n read Data prepare fail : \(errorMessage)")
+        }
+        sqlite3_finalize(statement)
     }
 }
 
