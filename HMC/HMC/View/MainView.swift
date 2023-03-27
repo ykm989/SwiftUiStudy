@@ -10,13 +10,15 @@ import SwiftUI
 struct MainView: View {
     @State private var animationAmount: CGFloat = 1
     @State var selectedTab = "house"
+    @State var clickButton: Bool = false
+    
     var body: some View {
         ZStack(alignment: .bottom,content: {
             Color("MainColor").ignoresSafeArea(.all)
             VStack{
                 Spacer()
                 Button {
-                    
+                    clickButton.toggle()
                 } label: {
                     Text("Find!").foregroundColor(.white)
                 }
@@ -28,11 +30,14 @@ struct MainView: View {
                         .stroke(Color.green, lineWidth: 2)
                         .scaleEffect(animationAmount)
                         .opacity(Double(2 - animationAmount))
-//                        .animation(Animation.easeInOut(duration: 1)
-//                            .repeatForever(autoreverses: false))
+                        .animation(Animation.easeInOut(duration: 1)
+                            .repeatForever(autoreverses: false))
                 }
                 .onAppear{
                     self.animationAmount = 2
+                }
+                .alert("\(Date()) \n 기록되었습니다.", isPresented: $clickButton) {
+                    Button("OK", role: .cancel) {}
                 }
                 Spacer()
             }
