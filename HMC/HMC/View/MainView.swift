@@ -19,6 +19,7 @@ struct MainView: View {
             VStack{
                 Spacer()
                 Button {
+                    viewModel.recordPosition()
                     clickButton.toggle()
                 } label: {
                     Text("Find!").foregroundColor(.white)

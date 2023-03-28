@@ -23,17 +23,11 @@ class Model{
         }
     }
     
-    
-    func initDB(){
-        
-//        let fileManger = FileManager() // 파일 매니저 객체 생성
-//        let docPathURL =
-    }
-    
 }
 
 class DBHelper {
     static let dbHelper = DBHelper()
+    static var dbData : [Info] = []
     
     var db: OpaquePointer? // db를 가리키는 포인터
     // db 이름은 항상 "DB이름.sqlite" 형식으로 해줄 것.
@@ -142,6 +136,8 @@ class DBHelper {
     
     // near "s": syntax error 에러가 남 - 원인 -1대신 01이
     func readData(){
+        DBHelper.dbData = []
+        
         let query = "select * from record;"
         var statement: OpaquePointer? = nil
         
@@ -157,6 +153,7 @@ class DBHelper {
                 
                 do{
                     let data = try JSONDecoder().decode(Info.self, from: info.data(using: .utf8)!)
+                    DBHelper.dbData.append(data)
                     print("readData Result: \(id) \(data)")
                 }
                 catch{
@@ -171,7 +168,7 @@ class DBHelper {
     }
 }
 
-struct Info: Codable{
+struct Info: Codable, Hashable{
     let date: String
     let position: String
 }

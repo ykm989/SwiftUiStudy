@@ -13,9 +13,9 @@ struct HMCApp: App {
         WindowGroup {
             
 //            ContentView()
-            
+//            DBTest()
 //            MainView()
-            DBTest()
+            RecordView()
         }
     }
 }
