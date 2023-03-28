@@ -65,7 +65,8 @@ class DBHelper {
     
     // 테이블 생성
     func createTable(){
-        let query = "create table if not exists record (id INTEGER primary key autoincrement, recordData text)"
+        let query = "create table if not exists record(id INTEGER primary key autoincrement, recordData text not null);"
+        
         var statement: OpaquePointer? = nil
         
         // sqlite3_prepare_v2는 sqlite의 명령어를 수행
@@ -143,8 +144,8 @@ class DBHelper {
     func readData(){
         let query = "select * from record;"
         var statement: OpaquePointer? = nil
-        print(query)
-        if sqlite3_prepare_v2(self.db, query, 01, &statement, nil) == SQLITE_OK{
+        
+        if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK{
             print(sqlite3_step(statement))
             // 현재 테이블에서 컬럼이 존재하면 계속 읽는다
             while sqlite3_step(statement) == SQLITE_ROW{
