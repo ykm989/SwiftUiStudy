@@ -17,6 +17,7 @@
 		AA962B6229D1950100F2A0AF /* TabCurve.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B6129D1950100F2A0AF /* TabCurve.swift */; };
 		AA962B6429D1AB7200F2A0AF /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B6329D1AB7200F2A0AF /* MainViewModel.swift */; };
 		AA962B6829D1B59A00F2A0AF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B6729D1B59A00F2A0AF /* Model.swift */; };
+		AA962B6C29D2B8E100F2A0AF /* DBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B6B29D2B8E100F2A0AF /* DBTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		AA962B6129D1950100F2A0AF /* TabCurve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabCurve.swift; sourceTree = "<group>"; };
 		AA962B6329D1AB7200F2A0AF /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		AA962B6729D1B59A00F2A0AF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		AA962B6B29D2B8E100F2A0AF /* DBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 				AA962B5D29D18AA800F2A0AF /* MainView.swift */,
 				AA962B5F29D1902000F2A0AF /* CustomTabBar.swift */,
 				AA962B6129D1950100F2A0AF /* TabCurve.swift */,
+				AA962B6B29D2B8E100F2A0AF /* DBTest.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				AA962B6429D1AB7200F2A0AF /* MainViewModel.swift in Sources */,
 				AA962B4D29D1828700F2A0AF /* ContentView.swift in Sources */,
 				AA962B5E29D18AA800F2A0AF /* MainView.swift in Sources */,
+				AA962B6C29D2B8E100F2A0AF /* DBTest.swift in Sources */,
 				AA962B4B29D1828700F2A0AF /* HMCApp.swift in Sources */,
 				AA962B6229D1950100F2A0AF /* TabCurve.swift in Sources */,
 			);

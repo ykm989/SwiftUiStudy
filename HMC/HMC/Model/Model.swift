@@ -107,7 +107,7 @@ class DBHelper {
         sqlite3_finalize(statement)
     }
     
-    func insertDate(_ recordDate: Info){
+    func insertData(_ recordDate: Info){
         
         let query = "insert into record (id, recordData) values (?,?);"
         var statement: OpaquePointer? = nil
@@ -137,6 +137,35 @@ class DBHelper {
         } catch{
             print("JSONEncoder Error : \(error.localizedDescription)")
         }
+    }
+    
+    // near "s": syntax error 에러가 남
+    func readData(){
+        let query = "select * from record;"
+        var statement: OpaquePointer? = nil
+        print(query)
+        if sqlite3_prepare_v2(self.db, query, 01, &statement, nil) == SQLITE_OK{
+            print(sqlite3_step(statement))
+            // 현재 테이블에서 컬럼이 존재하면 계속 읽는다
+            while sqlite3_step(statement) == SQLITE_ROW{
+                // 정수형 컬럼을 가져올 때 사용한다. 뒤에 0은 첫번째 컬럼을 뜻한다.
+                let id = sqlite3_column_int(statement, 0)
+                
+                // 문자열이라면 이렇게 text형식으로 가져온다. JSON으로 인코딩해서 String 형태로 넣어줬기 때문에 이렇게 받아와야 함
+                let info = String(cString: sqlite3_column_text(statement, 1))
+                
+                do{
+                    let data = try JSONDecoder().decode(Info.self, from: info.data(using: .utf8)!)
+                    print("readData Result: \(id) \(data)")
+                } catch{
+                    print("JSONDecoder Error : \(error.localizedDescription)")
+                }
+            }
+        } else {
+            let errorMessage = String(cString: sqlite3_errmsg(db))
+            print("\n read Data prepare fail : \(errorMessage)")
+        }
+        sqlite3_finalize(statement)
     }
 }
 
