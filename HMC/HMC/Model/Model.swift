@@ -140,13 +140,13 @@ class DBHelper {
         }
     }
     
-    // near "s": syntax error 에러가 남
+    // near "s": syntax error 에러가 남 - 원인 -1대신 01이
     func readData(){
         let query = "select * from record;"
         var statement: OpaquePointer? = nil
         
         if sqlite3_prepare_v2(self.db, query, -1, &statement, nil) == SQLITE_OK{
-            print(sqlite3_step(statement))
+            
             // 현재 테이블에서 컬럼이 존재하면 계속 읽는다
             while sqlite3_step(statement) == SQLITE_ROW{
                 // 정수형 컬럼을 가져올 때 사용한다. 뒤에 0은 첫번째 컬럼을 뜻한다.
@@ -158,7 +158,8 @@ class DBHelper {
                 do{
                     let data = try JSONDecoder().decode(Info.self, from: info.data(using: .utf8)!)
                     print("readData Result: \(id) \(data)")
-                } catch{
+                }
+                catch{
                     print("JSONDecoder Error : \(error.localizedDescription)")
                 }
             }
