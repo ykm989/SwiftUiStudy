@@ -14,8 +14,8 @@ struct HMCApp: App {
             
 //            ContentView()
 //            DBTest()
-//            MainView()
-            RecordView()
+            MainView()
+//            RecordView()
         }
     }
 }

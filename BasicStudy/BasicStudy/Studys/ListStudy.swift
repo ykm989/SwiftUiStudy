@@ -56,7 +56,7 @@ extension ListStudy{ // Body코드를 깔끔하게 하기 위해서 뷰를 아�
                     ForEach(listData) { data in
                         Text(data.name)
                     }
-                }
+                }.background(Color.blue, in: Rectangle())
                 .navigationBarTitle("Fruits") // title 설정 가능
                 .toolbar{EditButton()} // EditButton을 넣어줄 수 있다.
                 

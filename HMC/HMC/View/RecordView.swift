@@ -8,44 +8,34 @@
 import SwiftUI
 
 struct RecordView: View {
-    var test = ["hello", "hello"]
-    @State private var testa = DBHelper.dbData
+    @State private var data = MainViewModel().recordRefresh()
+    
+    init(){
+        data = MainViewModel().recordRefresh()
+    }
     
     var body: some View {
-        ZStack{
-            Color("MainColor").ignoresSafeArea(.all)
-            VStack{
-                Button {
-                    DBHelper().readData()
-                    testa = DBHelper.dbData
-                    
-                    
-                } label: {
-                    Text("Refresh")
-                    
-                }
-                
-                GraphView().padding(.top, 24).animation(.default)
-                
-                List {
-                    //                ForEach(test, id: \.self) { data in
-                    //                    Text(data)
-                    //                }
-                    
-                    ForEach(testa, id: \.self) { data in
-                        HStack{
-                            Image(systemName: "car.side")
-                            Text(data.date)
-                        }
+        VStack{
+            GraphView().padding(.top, 24).animation(.default)
+            
+            List {
+                ForEach(data, id: \.self) { data in
+                    HStack{
+                        Image(systemName: "car.side")
+                        Text(data.date)
                     }
-                }.padding(100)
+                }
             }
+            .background(.black)
+            .scrollContentBackground(.hidden)
+//            .padding(100)
         }
+        
     }
 }
 
 struct RecordView_Previews: PreviewProvider {
     static var previews: some View {
-        RecordView()
+        MainView()
     }
 }

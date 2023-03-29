@@ -35,7 +35,8 @@ class MainViewModel: ObservableObject{
         return DBHelper.dbData.count
     }
     
-    func recordRefresh(){
+    func recordRefresh() -> [Info]{
         DBHelper().readData()
+        return DBHelper.dbData
     }
 }
