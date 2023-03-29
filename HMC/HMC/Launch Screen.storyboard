@@ -69,7 +69,7 @@
                                 <rect key="frame" x="50" y="323" width="194" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="64"/>
-                                <color key="textColor" red="0.57254904510000004" green="0.60784316059999999" blue="0.66274511810000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" systemColor="systemMintColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -90,6 +90,9 @@
         <image name="LanchImage4" width="1080" height="1103"/>
         <image name="LanchImage5" width="1080" height="1106"/>
         <image name="LanchImage6" width="1080" height="1350"/>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

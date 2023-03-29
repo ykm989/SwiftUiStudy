@@ -19,6 +19,7 @@
 		AA962B6829D1B59A00F2A0AF /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B6729D1B59A00F2A0AF /* Model.swift */; };
 		AA962B6C29D2B8E100F2A0AF /* DBTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B6B29D2B8E100F2A0AF /* DBTest.swift */; };
 		AA962B6E29D33C2C00F2A0AF /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B6D29D33C2C00F2A0AF /* RecordView.swift */; };
+		AA962B7229D43F1600F2A0AF /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA962B7129D43F1600F2A0AF /* GraphView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		AA962B6729D1B59A00F2A0AF /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		AA962B6B29D2B8E100F2A0AF /* DBTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBTest.swift; sourceTree = "<group>"; };
 		AA962B6D29D33C2C00F2A0AF /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
+		AA962B7129D43F1600F2A0AF /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				AA962B5F29D1902000F2A0AF /* CustomTabBar.swift */,
 				AA962B6129D1950100F2A0AF /* TabCurve.swift */,
 				AA962B6B29D2B8E100F2A0AF /* DBTest.swift */,
+				AA962B7129D43F1600F2A0AF /* GraphView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				AA962B6029D1902000F2A0AF /* CustomTabBar.swift in Sources */,
 				AA962B6429D1AB7200F2A0AF /* MainViewModel.swift in Sources */,
 				AA962B4D29D1828700F2A0AF /* ContentView.swift in Sources */,
+				AA962B7229D43F1600F2A0AF /* GraphView.swift in Sources */,
 				AA962B5E29D18AA800F2A0AF /* MainView.swift in Sources */,
 				AA962B6C29D2B8E100F2A0AF /* DBTest.swift in Sources */,
 				AA962B4B29D1828700F2A0AF /* HMCApp.swift in Sources */,
