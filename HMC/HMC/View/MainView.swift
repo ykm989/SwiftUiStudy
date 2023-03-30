@@ -20,7 +20,7 @@ struct MainView: View {
             case "clipboard.list":
                 RecordView()
             default:
-                RecordView()
+                MapView()
             }
             
 
