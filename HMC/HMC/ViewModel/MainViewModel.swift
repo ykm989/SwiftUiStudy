@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreLocation
 
 class MainViewModel: ObservableObject{
     func now() -> String{
@@ -40,3 +41,10 @@ class MainViewModel: ObservableObject{
         return DBHelper.dbData
     }
 }
+
+//class ConfusionViewController: UIViewController, CLLocationManagerDelegate {
+//    
+//    var locationManager = CLLocationManager()
+//    
+//    
+//}

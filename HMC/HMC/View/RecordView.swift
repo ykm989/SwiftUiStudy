@@ -26,8 +26,8 @@ struct RecordView: View {
                     }
                 }
             }
-            .background(.black)
             .scrollContentBackground(.hidden)
+            .
 //            .padding(100)
         }
         

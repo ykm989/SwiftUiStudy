@@ -117,11 +117,11 @@
 				AA962B5D29D18AA800F2A0AF /* MainView.swift */,
 				AA962B7329D455C800F2A0AF /* HomeView.swift */,
 				AA962B6D29D33C2C00F2A0AF /* RecordView.swift */,
+				AA962B7529D477DA00F2A0AF /* MapView.swift */,
 				AA962B5F29D1902000F2A0AF /* CustomTabBar.swift */,
 				AA962B6129D1950100F2A0AF /* TabCurve.swift */,
 				AA962B6B29D2B8E100F2A0AF /* DBTest.swift */,
 				AA962B7129D43F1600F2A0AF /* GraphView.swift */,
-				AA962B7529D477DA00F2A0AF /* MapView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
