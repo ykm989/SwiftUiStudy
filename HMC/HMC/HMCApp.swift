@@ -12,10 +12,7 @@ struct HMCApp: App {
     var body: some Scene {
         WindowGroup {
             
-//            ContentView()
-//            DBTest()
             MainView()
-//            RecordView()
         }
     }
 }

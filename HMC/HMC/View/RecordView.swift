@@ -18,7 +18,7 @@ struct RecordView: View {
         VStack{
             GraphView().padding(.top, 24).animation(.default)
             
-            List {
+            ScrollView {
                 ForEach(data, id: \.self) { data in
                     HStack{
                         Image(systemName: "car.side")
@@ -26,9 +26,11 @@ struct RecordView: View {
                     }
                 }
             }
-            .scrollContentBackground(.hidden)
-            .
+            .frame(height: 350)
+            
+            
 //            .padding(100)
+            Spacer()
         }
         
     }

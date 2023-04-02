@@ -8,7 +8,11 @@
 import Foundation
 import CoreLocation
 
+
 class MainViewModel: ObservableObject{
+    let locationService = LocationService()
+    var position: String = ""
+    
     func now() -> String{
         let formatter = DateFormatter()
         formatter.dateFormat = "YYYY년 M월 d일"
@@ -29,7 +33,7 @@ class MainViewModel: ObservableObject{
     }
     
     func recordPosition(){
-        DBHelper().insertData(Info(date: now(), position: ""))
+        locationService.getLocation()
     }
     
     func recordCount() -> Int{
@@ -42,9 +46,41 @@ class MainViewModel: ObservableObject{
     }
 }
 
-//class ConfusionViewController: UIViewController, CLLocationManagerDelegate {
-//    
-//    var locationManager = CLLocationManager()
-//    
-//    
-//}
+class LocationService: NSObject, CLLocationManagerDelegate{
+    // 위치 관리자 객체 생성
+    let manager = CLLocationManager()
+    var position = ""
+    
+    override init() {
+        super.init()
+        
+        manager.delegate = self
+    }
+    
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let location = locations.last else { return }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        
+        DBHelper().insertData(Info(date: MainViewModel().now(), position: "\(latitude), \(longitude)"))
+        
+        manager.stopUpdatingLocation()
+    }
+    func locationManager(_ manager: CLLocationManager, didFailRangingFor beaconConstraint: CLBeaconIdentityConstraint, error: Error) {
+        print("Position Error : \(error)")
+    }
+    
+    func getLocation(){
+        manager.requestWhenInUseAuthorization()
+        manager.delegate = self
+        manager.startUpdatingLocation()
+    }
+    
+    
+    // https://bluesid.tistory.com/217
+
+    
+}
+
+

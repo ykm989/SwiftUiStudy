@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import CoreLocation
 
 struct HomeView: View{
-    @StateObject var viewModel = MainViewModel()
     @State var clickButton: Bool = false
     @State private var animationAmount: CGFloat = 1
+    @ObservedObject var viewModel: MainViewModel
+    var position = ""
     
     var body: some View{
         VStack{

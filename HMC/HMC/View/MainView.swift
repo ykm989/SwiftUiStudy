@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     @State var selectedTab = "house"
+    @StateObject var viewModel = MainViewModel()
     
     var body: some View {
         ZStack(alignment: .bottom,content: {
@@ -16,12 +17,11 @@ struct MainView: View {
             
             switch selectedTab{
             case "house":
-                HomeView()
-            case "clipboard.list":
+                HomeView(viewModel: viewModel)
+            case "list.clipboard":
                 RecordView()
             default:
-//                MapView()
-                RecordView()
+                MapView()
             }
             
 

@@ -13,13 +13,11 @@ import SwiftUI
 
 class Model{
     
-    func firstStart() -> Bool{
+    func firstStart(){
         if UserDefaults.standard.bool(forKey: "FirstStart"){
-            return true
-        } else {
-            @AppStorage("FirstStart") var firstBool: Bool = true
-            
-            return false
+            @AppStorage("FirstStart") var firstBool: Bool = false
+            print("First Start!")
+            DBHelper.init()
         }
     }
     
@@ -35,6 +33,7 @@ class DBHelper {
     
     init(){
         self.db = createDB()
+        createTable()
     }
     
     // DB생성
