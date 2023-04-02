@@ -10,11 +10,42 @@ import MapKit
 
 struct MapView: View {
     //서울 좌표
-    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.5666791, longitude: 126.9782914), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
-
+    @State private var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 37.520930, longitude: 126.809231), span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002))
+    
+    @State private var places: [Place] = [Place(position: CLLocationCoordinate2D(latitude: 37.520930, longitude: 126.809231))]
+    
+    private var data = MainViewModel().recordRefresh()
+    
+    init(){
+        print("init 시작")
+        print(data)
+        
+        data.forEach { data in
+            print(data)
+            let stringPosition = data.position.components(separatedBy: ",")
+            
+            guard let latitudeDouble = Double(stringPosition[0]) else {
+                print("Position to String : \(stringPosition)")
+                return
+            }
+            
+            guard let longitudeDouble = Double(stringPosition[1]) else {
+                print("Position to String : \(stringPosition)")
+                return
+            }
+            
+            let position = CLLocationCoordinate2D(latitude: Double(stringPosition[0])!, longitude: Double(stringPosition[1])!)
+            
+            places.append(Place(position: position))
+        }
+        print("init 결과")
+        print(places)
+    }
     
     var body: some View {
-        Map(coordinateRegion: $region, showsUserLocation: true).edgesIgnoringSafeArea(.all)
+        Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: places){ item in
+            MapMarker(coordinate: item.position)
+        }.edgesIgnoringSafeArea(.all)
     }
 }
 

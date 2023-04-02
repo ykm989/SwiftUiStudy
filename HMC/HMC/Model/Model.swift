@@ -10,6 +10,7 @@
 import Foundation
 import SQLite3
 import SwiftUI
+import CoreLocation
 
 class Model{
     
@@ -170,4 +171,9 @@ class DBHelper {
 struct Info: Codable, Hashable{
     let date: String
     let position: String
+}
+
+struct Place: Identifiable{
+    var id: UUID = UUID()
+    var position: CLLocationCoordinate2D
 }

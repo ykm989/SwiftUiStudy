@@ -11,7 +11,8 @@ import CoreLocation
 
 class MainViewModel: ObservableObject{
     let locationService = LocationService()
-    var position: String = ""
+//    var places: [Place] = [Place(position: CLLocationCoordinate2D(latitude: 37.520930, longitude: 126.809231))]
+    
     
     func now() -> String{
         let formatter = DateFormatter()
@@ -27,7 +28,7 @@ class MainViewModel: ObservableObject{
         let formmater = DateFormatter()
         formmater.dateFormat = "YYYY년 M월 d일,E"
         
-        print(formmater.string(from: date!).components(separatedBy: ","))
+//        print(formmater.string(from: date!).components(separatedBy: ","))
         
         return formmater.string(from: date!).components(separatedBy: ",")
     }
@@ -42,14 +43,39 @@ class MainViewModel: ObservableObject{
     
     func recordRefresh() -> [Info]{
         DBHelper().readData()
+        
+
+        
         return DBHelper.dbData
     }
+    
+//    func placesRefresh() -> [Place]{
+//        DBHelper.dbData.forEach { data in
+//            let stringPosition = data.position.components(separatedBy: ",")
+//            
+//            guard let latitudeDouble = Double(stringPosition[0]) else {
+//                print("Position to String : \(stringPosition)")
+//                return
+//            }
+//            
+//            guard let longitudeDouble = Double(stringPosition[1]) else {
+//                print("Position to String : \(stringPosition)")
+//                return
+//            }
+//            
+//            let position = CLLocationCoordinate2D(latitude: Double(stringPosition[0])!, longitude: Double(stringPosition[1])!)
+//            
+//            places.append(Place(position: position))
+//        }
+//        
+//        return places
+//    }
 }
 
 class LocationService: NSObject, CLLocationManagerDelegate{
     // 위치 관리자 객체 생성
     let manager = CLLocationManager()
-    var position = ""
+    
     
     override init() {
         super.init()
@@ -63,7 +89,7 @@ class LocationService: NSObject, CLLocationManagerDelegate{
         let latitude = location.coordinate.latitude
         let longitude = location.coordinate.longitude
         
-        DBHelper().insertData(Info(date: MainViewModel().now(), position: "\(latitude), \(longitude)"))
+        DBHelper().insertData(Info(date: MainViewModel().now(), position: "\(latitude),\(longitude)"))
         
         manager.stopUpdatingLocation()
     }
