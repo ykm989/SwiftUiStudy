@@ -25,7 +25,7 @@ struct MainView: View {
             }
             
 
-            CustomTabBar(selectedTab: $selectedTab)
+            CustomTabBar(selectedTab: $selectedTab).padding(.bottom)
         })
     }
 }
