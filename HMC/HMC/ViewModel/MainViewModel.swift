@@ -48,28 +48,6 @@ class MainViewModel: ObservableObject{
         
         return DBHelper.dbData
     }
-    
-//    func placesRefresh() -> [Place]{
-//        DBHelper.dbData.forEach { data in
-//            let stringPosition = data.position.components(separatedBy: ",")
-//            
-//            guard let latitudeDouble = Double(stringPosition[0]) else {
-//                print("Position to String : \(stringPosition)")
-//                return
-//            }
-//            
-//            guard let longitudeDouble = Double(stringPosition[1]) else {
-//                print("Position to String : \(stringPosition)")
-//                return
-//            }
-//            
-//            let position = CLLocationCoordinate2D(latitude: Double(stringPosition[0])!, longitude: Double(stringPosition[1])!)
-//            
-//            places.append(Place(position: position))
-//        }
-//        
-//        return places
-//    }
 }
 
 class LocationService: NSObject, CLLocationManagerDelegate{
